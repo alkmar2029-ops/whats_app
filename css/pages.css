@@ -2540,6 +2540,167 @@
 }
 
 /* ==========================================================================
+   Hero emphasis (urgency line)
+   ========================================================================== */
+.hero-emphasis {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 16px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 9999px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Power Quote Dividers (between sections — sales hooks)
+   ========================================================================== */
+.power-quote {
+  position: relative;
+  text-align: center;
+  padding: 80px 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 60%),
+    linear-gradient(180deg, transparent, rgba(16, 185, 129, 0.03), transparent);
+  border-top: 1px solid rgba(245, 158, 11, 0.1);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+}
+
+.power-quote.big {
+  padding: 100px 24px;
+}
+
+.power-quote::before,
+.power-quote::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.power-quote::before { top: 0; }
+.power-quote::after { bottom: 0; }
+
+.power-quote .pq-mark {
+  font-size: 80px;
+  color: rgba(245, 158, 11, 0.18);
+  line-height: 0.7;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 800;
+  margin-bottom: 16px;
+  height: 50px;
+}
+
+.power-quote-text {
+  font-size: clamp(22px, 3.2vw, 36px);
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--text-primary);
+  max-width: 900px;
+  margin-inline: auto;
+  margin-bottom: 24px;
+}
+
+.power-quote-text em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.power-quote-author {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .power-quote { padding: 56px 20px; }
+  .power-quote.big { padding: 64px 20px; }
+}
+
+/* ==========================================================================
+   Exclusive Value Math Grid (closing of exclusive-features)
+   ========================================================================== */
+.excl-value-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 32px auto;
+  max-width: 800px;
+}
+
+.excl-value-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.excl-value-item.highlight {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(16, 185, 129, 0.05));
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.1);
+}
+
+.excl-vi-num {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.excl-vi-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.excl-value-plus,
+.excl-value-eq {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.excl-value-eq {
+  color: var(--accent);
+}
+
+.excl-cta-btn {
+  margin-top: 28px;
+  padding: 18px 36px;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .excl-value-grid {
+    flex-direction: column;
+  }
+  .excl-value-plus,
+  .excl-value-eq {
+    transform: rotate(90deg);
+  }
+}
+
+/* ==========================================================================
    Exclusive Features (partner.html — Catalog, Marketing, Referrals)
    ========================================================================== */
 .excl-block {
