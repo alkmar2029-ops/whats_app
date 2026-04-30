@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#115e59"/>
+      <stop offset="100%" style="stop-color:#0f766e"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <!-- Decorative circles -->
+  <circle cx="150" cy="100" r="200" fill="#14b8a6" opacity="0.1"/>
+  <circle cx="1050" cy="530" r="250" fill="#f59e0b" opacity="0.08"/>
+  <!-- Building silhouettes -->
+  <rect x="100" y="280" width="80" height="300" rx="4" fill="white" opacity="0.08"/>
+  <rect x="200" y="200" width="100" height="380" rx="4" fill="white" opacity="0.1"/>
+  <rect x="320" y="320" width="70" height="260" rx="4" fill="white" opacity="0.06"/>
+  <rect x="830" y="250" width="90" height="330" rx="4" fill="white" opacity="0.08"/>
+  <rect x="940" y="300" width="70" height="280" rx="4" fill="white" opacity="0.06"/>
+  <rect x="1030" y="220" width="100" height="360" rx="4" fill="white" opacity="0.1"/>
+  <!-- Main text area -->
+  <text x="600" y="260" text-anchor="middle" font-family="sans-serif" font-size="72" font-weight="800" fill="white" direction="rtl">عقاري جدة</text>
+  <text x="600" y="340" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#14b8a6" direction="rtl">منصة المبيعات العقارية الذكية</text>
+  <text x="600" y="400" text-anchor="middle" font-family="sans-serif" font-size="24" fill="white" opacity="0.7" direction="rtl">WhatsApp AI Sales System</text>
+  <!-- WhatsApp icon -->
+  <circle cx="600" cy="490" r="35" fill="#25d366"/>
+  <path d="M600 465c-13.8 0-25 10.47-25 23.33 0 4.12 1.13 7.97 3.1 11.3L575 510l10.82-2.83A25.18 25.18 0 00600 511.67c13.8 0 25-10.47 25-23.34S613.8 465 600 465z" fill="white"/>
+</svg>
