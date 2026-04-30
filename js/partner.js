@@ -16,6 +16,21 @@
     return arabicDigit(withCommas) + ' ر.س';
   };
 
+  // ============== DASHBOARD TOUR TABS ==============
+  const dashTabs = document.querySelectorAll('.dash-tab');
+  const dashPanels = document.querySelectorAll('.dash-panel');
+
+  dashTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.dashTab;
+      dashTabs.forEach((t) => t.classList.remove('active'));
+      dashPanels.forEach((p) => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.querySelector(`.dash-panel[data-dash-panel="${target}"]`);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
   // ============== EARNINGS CALCULATOR ==============
   const slider = document.getElementById('brokers-per-month');
   const sliderValue = document.getElementById('brokers-value');
