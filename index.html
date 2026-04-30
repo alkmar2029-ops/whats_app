@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co;">
+  <title>وَصْل.ai | اختر مسارك</title>
+  <meta name="description" content="وَصْل.ai — منصة عقارية ذكية على واتساب. للمستثمرين أو للمسوقين الشركاء.">
+  <meta name="theme-color" content="#10b981">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+    .gateway {
+      max-width: 1100px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .gateway::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .gateway::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .gateway-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+    .gateway-brand .brand-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--brand);
+      border-radius: 50%;
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+    }
+    .gateway h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 16px;
+    }
+    .gateway > p {
+      color: var(--text-secondary);
+      font-size: 18px;
+      max-width: 600px;
+      margin-inline: auto;
+      margin-bottom: 56px;
+    }
+    .gateway-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .gateway-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 32px;
+      backdrop-filter: blur(20px);
+      text-align: right;
+      text-decoration: none;
+      color: var(--text-primary);
+      display: block;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .gateway-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.04), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gateway-card.gold::before {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), transparent);
+    }
+    .gateway-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .gateway-card.gold:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+    .gateway-card:hover::before { opacity: 1; }
+    .gateway-card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .gateway-card.gold .gateway-card-icon {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent);
+    }
+    .gateway-card-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .gateway-card.gold .gateway-card-badge {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent);
+    }
+    .gateway-card h2 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .gateway-card p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .gateway-card .arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 15px;
+      position: relative;
+      z-index: 1;
+      transition: gap 0.3s ease;
+    }
+    .gateway-card.gold .arrow { color: var(--accent); }
+    .gateway-card:hover .arrow { gap: 14px; }
+    .gateway-product {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .gateway-product a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .gateway-product a:hover { color: var(--brand-glow); }
+    .gateway-founder {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .gateway-grid { grid-template-columns: 1fr; }
+      .gateway-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gateway">
+    <div class="gateway-brand">
+      <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="14" stroke="#10b981" stroke-width="2.5" fill="none"/>
+        <path d="M10 16.5C10 13.5 12.5 11 16 11C19.5 11 22 13.5 22 16.5C22 19 20.5 21 18 21.5L16 24L14 21.5C11.5 21 10 19 10 16.5Z" fill="#10b981"/>
+        <circle cx="16" cy="16" r="2" fill="#0a0a0f"/>
+      </svg>
+      <span>وَصْل<span class="brand-dot" style="display:inline-block;margin:0 4px;"></span>ai</span>
+    </div>
+
+    <h1>اختر مسارك</h1>
+    <p>منصة وَصْل.ai — وكيل عقاري ذكي على واتساب يبيع باللهجة السعودية ٢٤/٧</p>
+
+    <div class="gateway-grid">
+      <a href="investor.html" class="gateway-card gold">
+        <div class="gateway-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <span class="gateway-card-badge">فرصة Seed</span>
+        <h2>للمستثمرين</h2>
+        <p>١٠٠٬٠٠٠ ريال مقابل ١٦.٧٪ — منتج حي، إيرادات متوقعة ١.٩ مليون ريال خلال ١٢ شهر، عائد ٥–٧× خلال ١٨ شهر.</p>
+        <span class="arrow">
+          عرض الفرصة كاملة
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l-7 7 7 7"/></svg>
+        </span>
+      </a>
+
+      <a href="partner.html" class="gateway-card">
+        <div class="gateway-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <span class="gateway-card-badge">١٥ مقعد فقط</span>
+        <h2>كن شريكاً</h2>
+        <p>CRM احترافي مجاناً + فيديوهات احترافية لكل وسيط تجلبه + عمولة ٣٠٪ لمدة سنة. بدون راتب — أنت شريك.</p>
+        <span class="arrow">
+          احجز مقعدك
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l-7 7 7 7"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <p class="gateway-product">
+      المنتج الفعلي والتسجيل على
+      <a href="https://smartsapp.net" target="_blank" rel="noopener">smartsapp.net</a>
+    </p>
+    <p class="gateway-founder">باسم محمد الحجري — مؤسس وَصْل.ai • +966 55 804 8004</p>
+  </div>
+</body>
+</html>
